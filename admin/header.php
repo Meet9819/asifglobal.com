@@ -3,10 +3,10 @@
 
 <div class="main-menu">
     <header class="header">
-        <a href="index.php" class="logo">Crown Stone Properties  </a>
+        <a href="index.php" class="logo">Asif Global   </a>
         <button type="button" class="button-close fa fa-times js__menu_close"></button>
         <div class="user">
-            <a href="user.php" class="avatar"><img src="images/user.png" alt="Crown Stone Properties  User"><span class="status online"></span></a>
+            <a href="user.php" class="avatar"><img src="images/user.png" alt="Asif Global   User"><span class="status online"></span></a>
             <h5 class="name"><a href="user.php">   <?php echo $_SESSION['user']['username']; ?>!</a></h5>
             <h5 class="position">   <?php echo $type =  $_SESSION['user']['type']; ?></h5>
             <!-- /.name -->
@@ -42,17 +42,7 @@
                     <a class="waves-effect" href="index.php"><i class="menu-icon fa fa-home"></i><span>Dashboard</span></a>
                 </li>
 
-               <!--    <li>
-                    <a class="waves-effect" href="registeruser.php"><i class="menu-icon fa fa-sign-in"></i><span>Register</span></a>
-                </li>
-                <li>
-                    <a class="waves-effect" href="order.php"><i class="menu-icon fa fa-first-order"></i><span>Order</span></a>
-                </li>
-                 -->
-
-<?php if($type == 'Admin')
-{
-  echo ' 
+              
 				<li>
                     <a class="waves-effect" href="banner.php"><i class="menu-icon fa fa-sliders"></i><span>Slider </span></a>
                 </li>
@@ -62,83 +52,20 @@
                 </li>  
 			
                  <li>
-                    <a class="waves-effect" href="menuadd.php"><i class="menu-icon fa fa-venus-mars "></i><span>Menu</span></a>
+                    <a class="waves-effect" href="menuadd.php"><i class="menu-icon fa fa-venus-mars "></i><span>Category</span></a>
                 </li> 
                 <li>
-                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-product-hunt "></i><span>Properties</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-product-hunt "></i><span>Products</span><span class="menu-arrow fa fa-angle-down"></span></a>
                     <ul class="sub-menu js__content">
-                        <li><a href="productsadd.php">Add Properties</a></li>
-                        <li><a href="productsview.php">View Properties</a></li>
+                        <li><a href="productsadd.php">Add Products</a></li>
+                        <li><a href="productsview.php">View Products</a></li>
                     </ul>
                   
-                </li> 
+                </li>  
+                  <li><a href="contactus.php">Contact Form</a></li>
+              
 
-                <li>
-                    <a class="waves-effect" href="saleproducts.php"><i class="menu-icon fa fa-sliders"></i><span>Sale Properties</span></a>
-                </li>
-
-                <li>
-                    <a class="waves-effect" href="team.php"><i class="menu-icon fa fa-bolt"></i><span>Team</span></a>
-                </li> 
-               
-                 <li>
-                    <a class="waves-effect" href="blogsview.php"><i class="menu-icon fa fa-rss "></i><span>Blogs</span></a>
-                </li>
-                <li>
-                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-table"></i><span>Other Pages</span><span class="menu-arrow fa fa-angle-down"></span></a>
-                    <ul class="sub-menu js__content">      
-                  
-                        <li><a href="faq.php">FAQs</a></li>
-                        <li><a href="contactus.php">Feedback Form</a></li>
-                    </ul>
-                  
-                </li>
-                  <li>
-                    <a class="waves-effect" href="testimonials.php"><i class="menu-icon fa fa-columns"></i><span>Testimonials</span></a>
-                </li>
-                
-                <li>
-                    <a class="waves-effect" href="ads.php"><i class="menu-icon fa fa-adn"></i><span>Ads</span></a>
-                </li> 
-                <li>
-                    <a class="waves-effect" href="offers.php"><i class="menu-icon fa fa-briefcase"></i><span>Offers</span></a>
-                </li> 
-                  <li>
-                    <a class="waves-effect" href="videosview.php"><i class="menu-icon fa fa-briefcase"></i><span>Videos</span></a>
-                </li>
-
-            </ul>
-            
-           
-            
-
-    ';
-}else {
-      '
-                <li>
-                    <a class="waves-effect" href="order.php"><i class="menu-icon fa fa-first-order"></i><span>Order</span></a>
-                </li>
-
-
-    ';
-}
-
-               
-           ?>
-           <!--  
-                <li>
-                    <a class="waves-effect" href="videosview.php"><i class="menu-icon fa fa-briefcase"></i><span>Videos</span></a>
-                </li>
-               <li>
-                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-product-hunt "></i><span>Services</span><span class="menu-arrow fa fa-angle-down"></span></a>
-                    <ul class="sub-menu js__content">
-                        <li><a href="servicesadd.php">Add Services</a></li>
-                        <li><a href="servicesview.php">View Services</a></li>
-                    </ul>
-                  
-                </li> 
-                 -->
-
+            </ul> 
 
             </ul>
             <!-- /.menu js__accordion -->

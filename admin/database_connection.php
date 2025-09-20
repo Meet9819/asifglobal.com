@@ -2,7 +2,7 @@
 
 //database_connection.php
 
-$connect = new PDO("mysql:host=localhost;dbname=crownstone", "pmaroot", "Mysql@123");
+$connect = new PDO("mysql:host=localhost;dbname=global", "root", "Mysql@123");
 
 
 

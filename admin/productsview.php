@@ -94,15 +94,12 @@ exit(); }
 
                                                     <td style="width:5%">
 
-                                                    <a href="../images/products/'.$row['img'].'" target="_blank" > <img style="width:50px" src="../images/products/'.$row['img'].'"> </a>  
-
-                                                    <br><Br> 
-
-                                                     <a href="../images/products/'.$row['imgdesc'].'" target="_blank" >  <img style="width:50px" src="../images/products/'.$row['imgdesc'].'"> </a> </td>
+                                                    <a href="../images/products/'.$row['img'].'" target="_blank" > <img style="width:50px" src="../images/products/'.$row['img'].'"> </a>   
+                                                   </td>
  	
 													<td style="width:10%">'.$row['name'].'</td>  											
 														
-											<td>'.substr($row['description'],0,150).'..
+											<td>'.substr($row['shortdescription'],0,150).'..
  
 
 											 </td>	

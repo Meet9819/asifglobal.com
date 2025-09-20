@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title> Crown Stone Properties  | Admin Panel</title>
+	<title> Asif Global   | Admin Panel</title>
 
 <link href="../assets/images/favicon/favicon.ico" rel="icon">
 	<!-- Main Styles -->
