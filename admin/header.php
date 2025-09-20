@@ -62,7 +62,7 @@
                     </ul>
                   
                 </li>  
-                  <li><a href="contactus.php">Contact Form</a></li>
+                  <li><a href="contactus.php"><i class="menu-icon fa fa-sliders"></i> Contact Form</a></li>
               
 
             </ul> 

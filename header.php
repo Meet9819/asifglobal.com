@@ -46,12 +46,37 @@
 								<ul class="navigation">
 									<li class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'current' : ''; ?>"><a href="index.php">Home</a></li>
 									<li class="<?php echo basename($_SERVER['PHP_SELF']) == 'about-us.php' ? 'current' : ''; ?>"><a href="about-us.php">About Us</a></li>
-									<li class="dropdown <?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'current' : ''; ?>"><a href="products.php">Products</a>
+									<li class="dropdown <?php echo basename($_SERVER['PHP_SELF']) == 'category.php' ? 'current' : ''; ?>"><a href="category.php">Products</a>
 									<ul>
-										<li><a href="fruits.php">Fruits</a></li>
-										<li><a href="vegetables.php">Vegetables</a></li>
+
+										   <?php 
+										   	include 'admin/db.php'; 
+			                                 $result = mysqli_query($con,"SELECT * FROM menu   ");
+			                                  while($row = mysqli_fetch_array($result))
+			                                     { 
+			                                        echo ' <li><a href="category.php?q='.$row['menu_id'].'">'.$row['menu_name'].'</a></li>
+			                                        ';
+			                                     }
+			                                 ?> 
 									</ul>
 									</li>
+
+
+									<li class="dropdown <?php echo basename($_SERVER['PHP_SELF']) == 'gallery.php' ? 'current' : ''; ?>"><a href="gallery.php">Gallery</a>
+									<ul>
+
+										   <?php 
+										   	include 'admin/db.php'; 
+			                                 $result = mysqli_query($con,"SELECT * FROM menu   ");
+			                                  while($row = mysqli_fetch_array($result))
+			                                     { 
+			                                        echo ' <li><a href="gallery.php?q='.$row['menu_id'].'">'.$row['menu_name'].'</a></li>
+			                                        ';
+			                                     }
+			                                 ?> 
+									</ul>
+									</li>
+									 
 									<li class="<?php echo basename($_SERVER['PHP_SELF']) == 'contact-us.php' ? 'current' : ''; ?>"><a href="contact-us.php">Contact Us</a></li>
 									<!--<li class="dropdown">
 										<a href="#">News</a>
