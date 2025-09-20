@@ -32,9 +32,18 @@
           <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
             <ul>
               <!-- Slide 1 -->
+
+                <?php 
+                        include 'admin/db.php'; 
+                                       $result = mysqli_query($con,"SELECT * FROM slider order by id desc   ");
+                                        while($row = mysqli_fetch_array($result))
+                                           {  ?> 
+                                               
+                                      
+
               <li data-index="rs-1" data-transition="zoomout">
                 <!-- MAIN IMAGE -->
-                <img src="images/main-slider/1.png" alt="" class="rev-slidebg" />
+                <img src="images/sliders/<?php echo $row['img'];?>" alt="" class="rev-slidebg" />
                 <div
                   class="tp-caption tp-shape tp-shapewrapper tp-resizeme ipad-hidden rs-parallaxlevel-1"
                   data-paddingbottom="[0,0,0,0]"
@@ -91,7 +100,7 @@
                   data-textalign="['top','top','top','top']"
                   data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                   >
-                  <span class="title">Asif Global Export</span>
+                  <span class="title"><?php echo $row['title'];?></span>
                 </div>
                 <div
                   class="tp-caption"
@@ -111,7 +120,7 @@
                   data-textalign="['top','top','top','top']"
                   data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                   >
-                  <h1>Connecting India to the World</h1>
+                  <h1><?php echo $row['description'];?></h1>
                 </div>
                 <div
                   class="tp-caption"
@@ -131,112 +140,14 @@
                   data-textalign="['top','top','top','top']"
                   data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
                   >
-                  <a href="about-us.php" class="theme-btn btn-style-one hvr-light"><span class="btn-title">Explore More</span></a>
+                  <a href="<?php echo $row['link'];?>" class="theme-btn btn-style-one hvr-light"><span class="btn-title"><?php echo $row['buttonname'];?>  </span></a>
                 </div>
               </li>
-              <!-- Slide 1 -->
-              <li data-index="rs-2" data-transition="zoomout">
-                <!-- MAIN IMAGE -->
-                <img src="images/main-slider/2.png" alt="" class="rev-slidebg" />
-                <div
-                  class="tp-caption tp-shape tp-shapewrapper tp-resizeme ipad-hidden rs-parallaxlevel-1"
-                  data-paddingbottom="[0,0,0,0]"
-                  data-paddingleft="[0,0,0,0]"
-                  data-paddingright="[0,0,0,0]"
-                  data-paddingtop="[0,0,0,0]"
-                  data-responsive_offset="on"
-                  data-type="shape"
-                  data-height="auto"
-                  data-whitespace="nowrap"
-                  data-width="none"
-                  data-hoffset="['110','110','110','110']"
-                  data-voffset="['110','90','90','90']"
-                  data-x="['right','right','right','right']"
-                  data-y="['bottom','bottom','bottom','bottom']"
-                  data-frames='[{"from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
-                  >
-                  <i class="float-icon flaticon-cargo-boat"></i>
-                </div>
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-1 ipad-hidden"
-                  data-paddingbottom="[0,0,0,0]"
-                  data-paddingleft="[0,0,0,0]"
-                  data-paddingright="[0,0,0,0]"
-                  data-paddingtop="[0,0,0,0]"
-                  data-responsive_offset="on"
-                  data-type="shape"
-                  data-height="none"
-                  data-whitespace="nowrap"
-                  data-width="none"
-                  data-hoffset="['0','0','0','0']"
-                  data-voffset="['110','90','90','90']"
-                  data-x="['right','right','right','right']"
-                  data-y="['bottom','bottom','bottom','bottom']"
-                  data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
-                  >
-                  <i class="float-icon flaticon-airplane-2"></i>
-                </div>
-                <div
-                  class="tp-caption"
-                  data-paddingbottom="[0,0,0,0]"
-                  data-paddingleft="[15,15,15,15]"
-                  data-paddingright="[0,0,0,0]"
-                  data-paddingtop="[0,0,0,0]"
-                  data-responsive_offset="on"
-                  data-type="text"
-                  data-height="none"
-                  data-width="['750','750','750','650']"
-                  data-whitespace="normal"
-                  data-hoffset="['0','0','0','0']"
-                  data-voffset="['-195','-160','-160','-140']"
-                  data-x="['left','left','left','left']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-textalign="['top','top','top','top']"
-                  data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                  >
-                  <span class="title">Asif Global Export</span>
-                </div>
-                <div
-                  class="tp-caption"
-                  data-paddingbottom="[0,0,0,0]"
-                  data-paddingleft="[15,15,15,15]"
-                  data-paddingright="[15,15,15,15]"
-                  data-paddingtop="[0,0,0,0]"
-                  data-responsive_offset="on"
-                  data-type="text"
-                  data-height="none"
-                  data-width="['750','750','750','650']"
-                  data-whitespace="normal"
-                  data-hoffset="['0','0','0','0']"
-                  data-voffset="['-70','-40','-40','-30']"
-                  data-x="['left','left','left','left']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-textalign="['top','top','top','top']"
-                  data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                  >
-                  <h1>Delivering Excellence in Quality Exports</h1>
-                </div>
-                <div
-                  class="tp-caption"
-                  data-paddingbottom="[0,0,0,0]"
-                  data-paddingleft="[15,15,15,15]"
-                  data-paddingright="[15,15,15,15]"
-                  data-paddingtop="[0,0,0,0]"
-                  data-responsive_offset="on"
-                  data-type="text"
-                  data-height="none"
-                  data-width="['700','750','700','450']"
-                  data-whitespace="normal"
-                  data-hoffset="['0','0','0','0']"
-                  data-voffset="['100','120','120','120']"
-                  data-x="['left','left','left','left']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-textalign="['top','top','top','top']"
-                  data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
-                  >
-                  <a href="about-us.php" class="theme-btn btn-style-one hvr-light"><span class="btn-title">Explore More</span></a>
-                </div>
-              </li>
+
+                  <?php }
+                                       ?> 
+
+             
             </ul>
           </div>
         </div>
@@ -251,14 +162,20 @@
                 <div class="sec-title">
                   <span class="sub-title">About Company</span>
                   <h2>Discover who we are</h2>
-                  <div class="text">At Asif Global Export, we have proudly earned our reputation and carved our distinct identity. As committed providers of fresh fruits and vegetables for export. With a well-established global clientele, we take pride in our commitment to delivering the best.</div>
+                  <div class="text"><?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM terms where id = 12");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo ''.$row['content'].''; 
+                                                                    }
+                                                                ?></div>
                   <div class="image-column desktophide mt-3">
                     <div class="inner-column">
                       <figure class="image-1"><img src="images/resource/1.png" alt="about-us-1"></figure>
                       <figure class="image-2"><img src="images/resource/2.png" alt="about-us-2"></figure>
                     </div>
                   </div>
-                  <div class="text mt-3">In this competitive and challenging international business landscape, our company recognizes the paramount importance of both quality and punctuality in delivering merchandise.</div>
+                  
                 </div>
                 <!--<div class="content-box">
                   <div class="about-block">

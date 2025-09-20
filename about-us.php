@@ -42,13 +42,21 @@
                 <div class="sec-title">
                   <span class="sub-title">About Company</span>
                   <h2>Discover who we are</h2>
-                  <div class="text">At Asif Global Export, we have proudly earned our reputation and carved our distinct identity. As committed providers of fresh fruits and vegetables for export. With a well-established global clientele, we take pride in our commitment to delivering the best.</div>
+
+
+                  <div class="text"><?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM terms where id = 7");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo ''.$row['content'].''; 
+                                                                    }
+                                                                ?></div>
                   <div class="image-column desktophide mt-3">
                     <div class="inner-column">
                       <figure><img src="images/resource/founder.png" alt="founder" class="br-10"/></figure>
                     </div>
                   </div>
-                  <div class="text mt-3">In this competitive and challenging international business landscape, our company recognizes the paramount importance of both quality and punctuality in delivering merchandise. Customer satisfaction is our top priority, and we're delighted to assist clients with any inquiries they may have. Your contentment is our primary focus, and we're committed to providing prompt and effective support to ensure your needs are met.</div>
+                
                 </div>
               </div>
               <div class="founder-info">

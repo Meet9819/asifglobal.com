@@ -74,37 +74,7 @@ exit(); }
 
 		<div class="col-lg-3 col-md-6 col-xs-12 ">
 		    <div class="box-content color-orange">
-		        <h4 class="box-title">New Order</h4> 
-		        <div class="content widget-stat"> 
-		            <div class="right-content">  
-		                <?php
-		                include "db.php";
-
-		                // Query to get the number of admin users
-		                $result = mysqli_query($con, "SELECT COUNT(1) FROM payment");
-		                
-		                if ($result) {
-		                    $row = mysqli_fetch_array($result);
-		                    $total = $row[0];
-		                    echo '<h2 class="counter">' . $total . '</h2>';
-		                } else {
-		                    echo '<h2 class="counter">0</h2>'; // Fallback if query fails
-		                    error_log("Error fetching admin user count: " . mysqli_error($con));
-		                }
-		                ?> 
-		                <p class="text">No of New Order</p> 
-		            </div> 
-		            
-		            
-		        </div> 
-		    </div> 
-		</div> 
-
-
-
-		<div class="col-lg-3 col-md-6 col-xs-12 ">
-		    <div class="box-content color-one">
-		        <h4 class="box-title">Properties</h4> 
+		        <h4 class="box-title">New Products</h4> 
 		        <div class="content widget-stat"> 
 		            <div class="right-content">  
 		                <?php
@@ -122,44 +92,16 @@ exit(); }
 		                    error_log("Error fetching admin user count: " . mysqli_error($con));
 		                }
 		                ?> 
-		                <p class="text">No of Items</p> 
-		            </div> 
-		             
-		            
-		        </div> 
-		    </div> 
-		</div>
- 
-		<div class="col-lg-3 col-md-6 col-xs-12 ">
-		    <div class="box-content color-two">
-		        <h4 class="box-title">Registered User</h4> 
-		        <div class="content widget-stat"> 
-		            <div class="right-content">  
-		                <?php
-		                include "db.php";
-
-		                // Query to get the number of admin users
-		                $result = mysqli_query($con, "SELECT COUNT(1) FROM payment");
-		                
-		                if ($result) {
-		                    $row = mysqli_fetch_array($result);
-		                    $total = $row[0];
-		                    echo '<h2 class="counter">' . $total . '</h2>';
-		                } else {
-		                    echo '<h2 class="counter">0</h2>'; // Fallback if query fails
-		                    error_log("Error fetching admin user count: " . mysqli_error($con));
-		                }
-		                ?> 
-		                <p class="text">No of Registered User</p> 
+		                <p class="text">No of New Products</p> 
 		            </div> 
 		            
 		            
 		        </div> 
 		    </div> 
-		</div>
-		  
+		</div> 
 
 
+   
 		<div class="col-lg-3 col-md-6 col-xs-12 ">
 		    <div class="box-content color-light-blue">
 		        <h4 class="box-title">Admin Login</h4> 
