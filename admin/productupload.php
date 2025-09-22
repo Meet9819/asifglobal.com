@@ -30,38 +30,26 @@ error_reporting(E_ALL);
 
             $id=$_POST['id'];  
 
-            $sale             = !empty($_POST['sale']) ? $_POST['sale'] : 0;
-            $newold           = !empty($_POST['newold']) ? $_POST['newold'] : '';
+            
             $maincat          = !empty($_POST['maincat']) ? $_POST['maincat'] : 0;
               
-            $pdf              = !empty($_POST['pdf']) ? $_POST['pdf'] : ''; 
+           
             $name             = !empty($_POST['name']) ? $_POST['name'] : '';
-            $bath             = !empty($_POST['bath']) ? $_POST['bath'] : 0;
-            $bed              = !empty($_POST['bed']) ? $_POST['bed'] : 0;
-            $sqft             = !empty($_POST['sqft']) ? $_POST['sqft'] : 0;
-            $developer        = !empty($_POST['developer']) ? $_POST['developer'] : '';
-            $developerid      = isset($_POST['developerid']) && is_numeric($_POST['developerid']) ? (int)$_POST['developerid'] : 0;
+            
             $price            = !empty($_POST['price']) ? $_POST['price'] : 0;
-            $address          = !empty($_POST['address']) ? $_POST['address'] : '';
+           
             $shortdescription = !empty($_POST['shortdescription']) ? $_POST['shortdescription'] : '';
             $description      = !empty($_POST['description']) ? $_POST['description'] : '';
             $descr            = !empty($_POST['descr']) ? $_POST['descr'] : '';
-            $amenities        = !empty($_POST['amenities']) ? $_POST['amenities'] : '';
-            $highlights       = !empty($_POST['highlights']) ? $_POST['highlights'] : '';
+            
             $metatag          = !empty($_POST['metatag']) ? $_POST['metatag'] : '';
             $metatitle        = !empty($_POST['metatitle']) ? $_POST['metatitle'] : '';
             $metadescription  = !empty($_POST['metadescription']) ? $_POST['metadescription'] : '';
             $status           = !empty($_POST['status']) ? $_POST['status'] : 0;
-            $address           = !empty($_POST['address']) ? $_POST['address'] : '';
-
-
-            $amenities           = !empty($_POST['amenities']) ? $_POST['amenities'] : '';
-            $highlights           = !empty($_POST['highlights']) ? $_POST['highlights'] : '';
+             
 
  
-            $insert = "INSERT INTO products (sale, newold, maincat, img, imgdesc, pdf, name, bath, bed, sqft, developer, developerid, price, address, shortdescription, description, descr, amenities, highlights, metatag, metatitle, metadescription, status, address,amenities,highlights) 
-
-            VALUES ('$sale', '$newold', '$maincat', '$img', '$img2', '$pdf', '$name', '$bath', '$bed', '$sqft', '$developer', '$developerid', '$price', '$address', '$shortdescription', '$description', '$descr', '$amenities', '$highlights', '$metatag', '$metatitle', '$metadescription', '$status','$address', '$amenities', '$highlights')";
+            $insert = "INSERT INTO products (  maincat, img,  name,  price,  shortdescription, description, descr,  metatag, metatitle, metadescription, status) VALUES ( '$maincat', '$img',  '$name',  '$price',   '$shortdescription', '$description', '$descr',  '$metatag', '$metatitle', '$metadescription', '$status' )";
  
 
                $query =  mysqli_query($con,$insert) or die(mysqli_error($con));

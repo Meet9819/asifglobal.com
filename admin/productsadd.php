@@ -22,7 +22,7 @@ exit(); }
 		                                     
 		<div class="col-lg-12 col-xs-12">
 				<div class="box-content card white">
-					<h4 class="box-title">Add Property</h4>
+					<h4 class="box-title">Add  </h4>
 					<!-- /.box-title -->
 					<div class="card-content">
 
@@ -49,7 +49,7 @@ while ($row = mysqli_fetch_array($result)) {
 							<input type="hidden" name="status" value="1">
 
 							<div class="form-group">
-								<label for="one" class="col-sm-3 control-label">Property Name</label>
+								<label for="one" class="col-sm-3 control-label">  Name</label>
 								<div class="col-sm-3">
 									<input type="text" name="name" class="form-control" id="one" >
 								</div>
@@ -66,7 +66,7 @@ while ($row = mysqli_fetch_array($result)) {
 
 
 							<div class="form-group">
-								<label for="three" class="col-sm-3 control-label">Select Category</label>
+								<label for="three" class="col-sm-3 control-label">  Category</label>
 								<div class="col-sm-3"> 
 
 									<select name="maincat" id="three" class="form-control" >
@@ -96,7 +96,7 @@ while ($row = mysqli_fetch_array($result)) {
 
 
 								<div class="form-group">
-								<label for="four" class="col-sm-3 control-label">Main Image</label>
+								<label for="four" class="col-sm-3 control-label">  Image</label>
 								<div class="col-sm-3">
 									<input type="file" id="four" name="image" >
 									<p class="help-block">Image should be 1000 x 1000 in pixels</p>
@@ -111,54 +111,7 @@ while ($row = mysqli_fetch_array($result)) {
 
 								</div>
   
-
-								<div class="form-group">
-								<label for="imgdesc" class="col-sm-3 control-label">Reels Image</label>
-								<div class="col-sm-3">
-									<input type="file" id="imgdesc" name="imgdesc" >
-									<p class="help-block">Image should be 1000 x 1000 in pixels</p>
-								</div> 
-									 <div class="col-sm-3">
-									 
-									</div>  
-								</div>
-  
- 	
-								<div class="form-group">
-
-								<label for="newold" class="col-sm-3 control-label">  New / Old</label>
-								<div class="col-sm-3"> 
-																 
-								<select name="newold" id="newold" class="form-control"> 
-								  <option value="1" <?php if($newold == "1") echo "selected"; ?>>New</option>
-								  <option value="" <?php if($newold == "") echo "selected"; ?>>Old</option>
-								</select>
-						
-								</div> 
-                               
-                                <div class="col-sm-3">
-                                </div>
-
-								</div>
-
- 	
-								<div class="form-group">
-								<label for="newold" class="col-sm-3 control-label">  Sale </label>
-								<div class="col-sm-3"> 
-
-								<select name="sale" id="sale" class="form-control"> 
-								  <option value="1" <?php if($sale == "1") echo "selected"; ?>>Yes</option>
-								  <option value="0" <?php if($sale == "0") echo "selected"; ?>>No</option>
-								</select>
-
-								</div> 
-                               
-                                <div class="col-sm-3">
-                                   
-
-                                </div>
-
-								</div>
+   
 
 
 							<div class="form-group">
@@ -168,20 +121,7 @@ while ($row = mysqli_fetch_array($result)) {
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="amenities" class="col-sm-3 control-label">amenities</label>
-								<div class="col-sm-9">
-									<textarea class="form-control" name="amenities" id="amenities" ></textarea>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="highlights" class="col-sm-3 control-label">highlights</label>
-								<div class="col-sm-9">
-									<textarea class="form-control" name="highlights" id="highlights" ></textarea>
-								</div>
-							</div>
-
+						 
 
 							<div class="form-group">
 								<label for="text" class="col-sm-3 control-label">Description</label>
@@ -219,39 +159,7 @@ while ($row = mysqli_fetch_array($result)) {
 							</div>
 
 
-						<div class="form-group">
-								<label for="stock" class="col-sm-3 control-label">Bed     </label>
-								<div class="col-sm-3">
-									<input type="text" name="bed" class="form-control" id="bed"   value="<?php echo $bed; ?>">
-								</div>
-
-
-								<label for="discount" class="col-sm-3 control-label">Bath    </label>
-								<div class="col-sm-3">
-									<input type="text" name="bath" class="form-control" id="bath"   value="<?php echo $bath; ?>">
-								</div>
-
-
-							</div>
-
-
-
-
-						<div class="form-group">
-								<label for="amazon" class="col-sm-3 control-label">Sqft    </label>
-								<div class="col-sm-3">
-									<input type="text" name="sqft" class="form-control" id="sqft"   value="<?php echo $sqft; ?>">
-								</div>
-
-
-								<label for="flipkart" class="col-sm-3 control-label">Developer  </label>
-								<div class="col-sm-3">
-									<input type="text" name="developer" class="form-control" id="developer"   value="<?php echo $developer; ?>">
-								</div>
-
-
-							</div>
-
+				  
 
 
 						<div class="form-group">
@@ -262,9 +170,9 @@ while ($row = mysqli_fetch_array($result)) {
 
 
 								
-								<label for="sixteen" class="col-sm-3 control-label"> Address  </label>
+								<label for="sixteen" class="col-sm-3 control-label">    </label>
 								<div class="col-sm-3">
-									 <input type="text" name="address" class="form-control" id="address"   value="<?php echo $address; ?>">
+									 
 								</div>
 
 

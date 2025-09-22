@@ -68,10 +68,23 @@
 			                <div class="content-box">
 			                  <img src="images/icons/fruits.png" class="icon" alt="fruits">
 			                  <h4 class="title">'.$row['name'].'</h4>
+                        <h4 class="title">₹'.$row['price'].'/-</h4>
 			                  <div class="text">'.$row['shortdescription'].'</div>
 			                </div>
 			              </div>
 			            </div>
+
+
+                  <div class="service-block col-xl-9 col-lg-9 col-md-6 col-sm-12 wow fadeInUp">
+                    <div class="inner-box"> 
+                      <div class="content-box">  
+                        <div class="text">'.$row['description'].'</div> <br><br>
+                        <div class="text">'.$row['descr'].'</div>
+                      </div>
+                    </div>
+                  </div>
+
+
 			            ';
 			        }
 			        ?>
