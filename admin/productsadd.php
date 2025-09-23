@@ -170,16 +170,45 @@ while ($row = mysqli_fetch_array($result)) {
 
 
 								
-								<label for="sixteen" class="col-sm-3 control-label">    </label>
+								<label for="sixteen" class="col-sm-3 control-label"> Types   </label>
 								<div class="col-sm-3">
-									 
+									 <input type="text" name="type" class="form-control" id="type"   value="<?php echo $type; ?>">
+								</div>
+
+							</div>
+
+
+  		<div class="form-group">
+								<label for="price" class="col-sm-3 control-label"> Packaging type     </label>
+								<div class="col-sm-3">
+									<input type="text" name="ptype" class="form-control" id="ptype"   value="<?php echo $ptype; ?>">
+								</div>
+
+
+								<label for="sixteen" class="col-sm-3 control-label"> Load in 40/20FT container    </label>
+								<div class="col-sm-3">
+									 <input type="text" name="container" class="form-control" id="container"   value="<?php echo $container; ?>">
 								</div>
 
 
 							</div>
 
 
-  
+						<div class="form-group">
+								<label for="price" class="col-sm-3 control-label"> MOQ     </label>
+								<div class="col-sm-3">
+									<input type="text" name="moq" class="form-control" id="moq"   value="<?php echo $moq; ?>">
+								</div>
+
+
+								<label for="sixteen" class="col-sm-3 control-label">     </label>
+								<div class="col-sm-3">
+								 
+								</div>
+
+
+							</div>
+
 
 
 

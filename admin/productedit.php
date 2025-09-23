@@ -61,6 +61,10 @@ ini_set('display_errors', 1);
 		$price   = !empty($_POST['price']) ? $_POST['price'] : '';
 		 
             
+		$type   = !empty($_POST['type']) ? $_POST['type'] : '';
+		$ptype   = !empty($_POST['ptype']) ? $_POST['ptype'] : '';
+		$container   = !empty($_POST['container']) ? $_POST['container'] : '';
+		$moq   = !empty($_POST['moq']) ? $_POST['moq'] : '';
 
         $imgFile = $_FILES['user_image']['name'];
         $tmp_dir = $_FILES['user_image']['tmp_name'];
@@ -129,14 +133,17 @@ ini_set('display_errors', 1);
 		    $insertStmt->bindParam(':mrp', $mrp);
 		    $insertStmt->execute();
 
+ 
 
-
-
-
-        $stmt = $DB_con->prepare('UPDATE products SET maincat=:maincat,   name=:name,  img=:img, description=:description,  descr=:descr,  metatitle=:metatitle, metatag=:metatag, metadescription=:metadescription , shortdescription=:shortdescription,  price=:price
+        $stmt = $DB_con->prepare('UPDATE products SET type=:type,ptype=:ptype,container=:container,moq=:moq, maincat=:maincat,   name=:name,  img=:img, description=:description,  descr=:descr,  metatitle=:metatitle, metatag=:metatag, metadescription=:metadescription , shortdescription=:shortdescription,  price=:price
 
          WHERE id=:id');
    
+         	$stmt->bindParam(':type',$type);   
+         	$stmt->bindParam(':ptype',$ptype);   
+         	$stmt->bindParam(':container',$container);   
+         	$stmt->bindParam(':moq',$moq);   
+
          	$stmt->bindParam(':maincat',$maincat);   
             $stmt->bindParam(':name',$name);    
             $stmt->bindParam(':img',$img); 
@@ -289,17 +296,47 @@ ini_set('display_errors', 1);
 								</div>
 
 
-								<label for="sixteen" class="col-sm-3 control-label">    </label>
+								<label for="sixteen" class="col-sm-3 control-label"> Types   </label>
 								<div class="col-sm-3">
-									 
+									 <input type="text" name="type" class="form-control" id="type"   value="<?php echo $type; ?>">
 								</div>
 
 
 							</div>
 
 
-  
+						<div class="form-group">
+								<label for="price" class="col-sm-3 control-label"> Packaging type     </label>
+								<div class="col-sm-3">
+									<input type="text" name="ptype" class="form-control" id="ptype"   value="<?php echo $ptype; ?>">
+								</div>
 
+
+								<label for="sixteen" class="col-sm-3 control-label"> Load in 40/20FT container    </label>
+								<div class="col-sm-3">
+									 <input type="text" name="container" class="form-control" id="container"   value="<?php echo $container; ?>">
+								</div>
+
+
+							</div>
+
+
+						<div class="form-group">
+								<label for="price" class="col-sm-3 control-label"> MOQ     </label>
+								<div class="col-sm-3">
+									<input type="text" name="moq" class="form-control" id="moq"   value="<?php echo $moq; ?>">
+								</div>
+
+
+								<label for="sixteen" class="col-sm-3 control-label">     </label>
+								<div class="col-sm-3">
+								 
+								</div>
+
+
+							</div>
+
+ 
 
 
 						<div class="form-group">

@@ -78,8 +78,19 @@
                   <div class="service-block col-xl-9 col-lg-9 col-md-6 col-sm-12 wow fadeInUp">
                     <div class="inner-box"> 
                       <div class="content-box">  
-                        <div class="text">'.$row['description'].'</div> <br><br>
+                        
+                        <div class="text">
+ 
+                           Types : '.$row['type'].' <br> 
+                           Packaging type :  '.$row['ptype'].' <br> 
+                           Load in 40/20FT container : '.$row['container'].' <br> 
+                           MOQ : '.$row['moq'].' <br> 
+
+                        </div><br> 
+
+                        <div class="text">'.$row['description'].'</div> 
                         <div class="text">'.$row['descr'].'</div>
+ 
                       </div>
                     </div>
                   </div>

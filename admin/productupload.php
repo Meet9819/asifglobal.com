@@ -48,8 +48,13 @@ error_reporting(E_ALL);
             $status           = !empty($_POST['status']) ? $_POST['status'] : 0;
              
 
+            
+        $type   = !empty($_POST['type']) ? $_POST['type'] : '';
+        $ptype   = !empty($_POST['ptype']) ? $_POST['ptype'] : '';
+        $container   = !empty($_POST['container']) ? $_POST['container'] : '';
+        $moq   = !empty($_POST['moq']) ? $_POST['moq'] : '';
  
-            $insert = "INSERT INTO products (  maincat, img,  name,  price,  shortdescription, description, descr,  metatag, metatitle, metadescription, status) VALUES ( '$maincat', '$img',  '$name',  '$price',   '$shortdescription', '$description', '$descr',  '$metatag', '$metatitle', '$metadescription', '$status' )";
+            $insert = "INSERT INTO products ( type,ptype,container,moq,  maincat, img,  name,  price,  shortdescription, description, descr,  metatag, metatitle, metadescription, status) VALUES (  '$type', '$ptype', '$container', '$moq',       '$maincat', '$img',  '$name',  '$price',   '$shortdescription', '$description', '$descr',  '$metatag', '$metatitle', '$metadescription', '$status' )";
  
 
                $query =  mysqli_query($con,$insert) or die(mysqli_error($con));
