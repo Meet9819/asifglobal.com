@@ -48,6 +48,9 @@ while ($row = mysqli_fetch_array($result)) {
 
 							<input type="hidden" name="status" value="1">
 
+
+
+
 							<div class="form-group">
 								<label for="one" class="col-sm-3 control-label">  Name</label>
 								<div class="col-sm-3">
@@ -95,6 +98,37 @@ while ($row = mysqli_fetch_array($result)) {
  
 
 
+							<div class="form-group">
+								<label for="three" class="col-sm-3 control-label">  Display as a Product / Child </label>
+								<div class="col-sm-3"> 
+
+									<select name="parentid" id="parentid" class="form-control" >
+										  <option value="0">  Display as a Product </option>
+										  <?php
+
+											include"db.php";
+
+											$result = mysqli_query($con,"SELECT * FROM products  where parentid = 0");
+											while($row = mysqli_fetch_array($result))
+											{
+											echo '<option value="' .$row['id'].'">' .$row['name'].'</option>';
+											} 
+											?>
+										</select>
+									</div>
+								<div class="col-sm-3">
+								 
+								</div>
+								</div>
+
+
+
+
+
+
+
+
+
 								<div class="form-group">
 								<label for="four" class="col-sm-3 control-label">  Image</label>
 								<div class="col-sm-3">
@@ -112,6 +146,13 @@ while ($row = mysqli_fetch_array($result)) {
 								</div>
   
    
+							<div class="form-group">
+								    <label for="tabledesc" class="col-sm-3 col-form-label">Table Description (Eg: Origin : India , Purity : 95% ...)</label>
+
+								<div class="col-sm-9">
+									<textarea class="form-control" name="tabledesc" id="tabledesc" ></textarea>
+								</div>
+							</div>
 
 
 							<div class="form-group">

@@ -34,23 +34,40 @@ exit(); }
 						
 <?php
 include('db.php');
- if(isset($_POST['save']))
-{
-  $menu_name = $_POST['menu_name'];
-  $parent_id = $_POST['parent_id'];  
-  $save=mysqli_query($con,"INSERT INTO menu (menu_name,parent_id) VALUES ('$menu_name','$parent_id')");
- ?>
-                <script>
+
+if (isset($_POST['save'])) {
+    $menu_name   = mysqli_real_escape_string($con, $_POST['menu_name']);
+    $parent_id   = mysqli_real_escape_string($con, $_POST['parent_id']);
+    $description = mysqli_real_escape_string($con, $_POST['description']);
+
+    $save = mysqli_query($con, "INSERT INTO menu (menu_name, parent_id, description) 
+                                VALUES ('$menu_name', '$parent_id', '$description')");
+
+    if ($save) {
+        echo "<script>
                 alert('Successfully Inserted ...');
                 window.location.href='menuadd.php';
-                </script>
-                <?php
-
-                             
+              </script>";
+    } else {
+        echo "Error: " . mysqli_error($con);
     }
+}
 ?>
 
+
 	  <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+  	    						<div class="form-group">
+                                <label for="inp-type-1" class="col-sm-3 control-label">Image </label>
+                                <div class="col-sm-6"> 
+                                      <a target="_blank" href="../images/<?php echo $getROW['img']; ?>"> <?php echo $getROW['img']; ?> </a>
+ 									 <input type="file" name="user_image" accept="*" />
+
+                                <p class="help-block">Image should be in pixels</p>
+                                </div>
+
+                                </div>
+
 
 							<div class="form-group">
 								<label for="inp-type-1" class="col-sm-3 control-label">Menu Name</label>
@@ -88,6 +105,13 @@ echo '<option value="' .$row['menu_id'].'">' .$row['menu_name'].'</option>';
 								</div>
 							</div>
 
+
+							<div class="form-group">
+								<label for="inp-type-1" class="col-sm-3 control-label">Description  </label>
+								<div class="col-sm-6">
+									<textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Description " required=""> </textarea>
+								</div>
+							</div>
 
 
 						
@@ -127,6 +151,7 @@ echo '<option value="' .$row['menu_id'].'">' .$row['menu_name'].'</option>';
 							
 									<th>Menu Name </th>
 									<th>Parent ID</th>
+									<th>Description </th>
 								<th>Status</th>
 								<th>Action</th>
 							
@@ -179,6 +204,7 @@ echo '
 									 echo ''.$subrow['menu_name'].'';
 									}  echo '
 								</td>
+								  <td> '.$row['description'].'</td>
 
 
 '; ?> 

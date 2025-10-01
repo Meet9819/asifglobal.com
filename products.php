@@ -42,71 +42,35 @@
           </div>
           <div class="row">
             <!-- Feature Block -->
-            <div class="feature-block col-lg-6 col-md-6 col-sm-12">
-              <div class="inner-box">
-                <div class="icon-box">
-                  <img src="images/icons/fruits.png" class="icon" alt="fruits">
-                </div>
-                <div class="content-box">
-                  <h4 class="title">
-                    Fruits
-                  </h4>
-                  <div class="text">Bringing the world's finest fruits to your doorstep - where freshness meets excellence. Trust us to deliver freshness, taste, and satisfaction, wherever you are.</div>
-				  <a href="fruits.php">READ MORE <span class="fa fa-angle-right"></span></a>
-                </div>
-              </div>
-            </div>
-            <!-- Feature Block -->
-            <div class="feature-block col-lg-6 col-md-6 col-sm-12">
-              <div class="inner-box">
-                <div class="icon-box">
-                  <img src="images/icons/vegetables.png" class="icon" alt="vegetables">
-                </div>
-                <div class="content-box">
-                  <h4 class="title">
-                    Vegetables
-                  </h4>
-                  <div class="text">Embark on a journey of freshness with Asif Global Export, your premier destination for top-quality vegetables sourced from the world's finest farms. </div>
-				  <a href="vegetables.php">READ MORE <span class="fa fa-angle-right"></span></a>
-                </div>
-              </div>
-            </div>
-            <!-- Feature Block -->
-            <!--<div class="feature-block col-lg-4 col-md-6 col-sm-12">
-              <div class="inner-box">
-                <div class="icon-box">
-                  <img src="images/icons/paper-carry-bag.png" class="icon" alt="paper-carry-bag">
-                </div>
-                <div class="content-box">
-                  <h4 class="title">Paper carry bag</h4>
-                  <div class="text">Environmentally friendly paper carry bags for sustainable, stylish, and convenient packaging.</div>
-                </div>
-              </div>
-            </div>-->
-            <!-- Feature Block -->
-            <!--<div class="feature-block offset-lg-2 col-lg-4 col-md-6 col-sm-12">
-              <div class="inner-box">
-                <div class="icon-box">
-                  <img src="images/icons/paper-gift-bag.png" class="icon" alt="paper-gift-bag">
-                </div>
-                <div class="content-box">
-                  <h4 class="title">Paper containers</h4>
-                  <div class="text">Elegant paper containers for memorable and eco-friendly, and suitability for gift presentations.</div>
-                </div>
-              </div>
-            </div>-->
-            <!-- Feature Block -->
-            <!--<div class="feature-block col-lg-4 col-md-6 col-sm-12">
-              <div class="inner-box">
-                <div class="icon-box">
-                  <img src="images/icons/paper-packaging-bag.png" class="icon" alt="paper-packaging-bag">
-                </div>
-                <div class="content-box">
-                  <h4 class="title">Paper packaging bag</h4>
-                  <div class="text">Versatile paper packaging bags for various industries, and cost-effective.</div>
-                </div>
-              </div>
-            </div>-->
+
+
+               <?php 
+                        include 'admin/db.php'; 
+                                       $result = mysqli_query($con,"SELECT * FROM menu   ");
+                                        while($row = mysqli_fetch_array($result))
+                                           { 
+                                              echo ' 
+                                            <div class="feature-block col-lg-6 col-md-6 col-sm-12">
+                                              <div class="inner-box">
+                                                <div class="icon-box">
+                                                 <img src="images/'.$row['img'].'" class="icon" alt="  '.$row['menu_name'].'">
+                                                </div>
+                                                <div class="content-box">
+                                                  <h4 class="title">
+                                                    '.$row['menu_name'].'
+                                                  </h4>
+                                                  <div class="text"> '.$row['description'].'</div>
+                                                  <a href="category.php?q='.$row['menu_id'].'">READ MORE <span class="fa fa-angle-right"></span></a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                 
+                                              ';
+                                           }
+                                       ?> 
+
+
+          
           </div>
         </div>
       </section>

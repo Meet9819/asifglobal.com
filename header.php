@@ -1,4 +1,7 @@
-<!-- Main Header-->
+ 
+
+
+  <!-- Main Header-->
 			<header class="main-header header-style-one">
 				<!-- Header Top -->
 				<div class="header-top">
@@ -46,7 +49,7 @@
 								<ul class="navigation">
 									<li class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'current' : ''; ?>"><a href="index.php">Home</a></li>
 									<li class="<?php echo basename($_SERVER['PHP_SELF']) == 'about-us.php' ? 'current' : ''; ?>"><a href="about-us.php">About Us</a></li>
-									<li class="dropdown <?php echo basename($_SERVER['PHP_SELF']) == 'category.php' ? 'current' : ''; ?>"><a href="category.php">Products</a>
+									<li class="dropdown <?php echo basename($_SERVER['PHP_SELF']) == 'products.php' ? 'current' : ''; ?>"><a href="products.php">Products</a>
 									<ul>
 
 										   <?php 
@@ -204,3 +207,81 @@
 				<!-- End Sticky Menu -->
 			</header>
 			<!--End Main Header -->
+
+
+<style>
+.translate-box {
+  position: fixed;
+  bottom: 15px;
+  right: 60px; /* now bottom-left */
+  z-index: 9999; 
+  padding: 8px 12px;
+  border-radius: 10px; 
+  font-family: Arial, sans-serif;
+}
+
+.translate-box select {
+padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #bc8600;
+    font-size: 14px;
+    background: #bc8600;
+    color: white;
+}
+</style>
+
+<div class="translate-box"> 
+  <select id="languageSelect"> 
+    <option selected value="en">English</option>
+    <option value="hi">Hindi</option>
+    <option value="ar">Arabic</option>
+    <option value="es">Spanish</option>
+    <option value="fr">French</option>
+    <option value="zh-CN">Chinese (Simplified)</option>
+    <option value="ja">Japanese</option>
+    <option value="pt">Portuguese</option>
+    <option value="de">German</option>
+    <option value="ru">Russian</option>
+    <option value="bn">Bengali</option>
+    <option value="ur">Urdu</option>
+    <option value="tr">Turkish</option>
+    <option value="ko">Korean</option>
+    <option value="it">Italian</option>
+    <option value="id">Indonesian</option>
+    <option value="ms">Malay</option>
+    <option value="th">Thai</option>
+    <option value="vi">Vietnamese</option>
+    <option value="sw">Swahili</option>
+    <option value="pl">Polish</option>
+    <option value="nl">Dutch</option>
+    <option value="tl">Filipino / Tagalog</option>
+    <option value="fa">Persian (Farsi)</option>
+  </select>
+</div>
+
+<!-- Google Translate core script (hidden) -->
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  // Listen for dropdown change
+  document.getElementById("languageSelect").addEventListener("change", function () {
+    var lang = this.value;
+    if (lang) {
+      var selectField = document.querySelector("select.goog-te-combo");
+      if (selectField) {
+        selectField.value = lang;
+        // Fire change event on hidden Google dropdown
+        selectField.dispatchEvent(new Event("change"));
+      }
+    }
+  });
+</script>
+
+
+

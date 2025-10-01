@@ -69,10 +69,10 @@
                   $q = isset($_GET['q']) ? trim($_GET['q']) : '';  
 
                   if ($q !== '') { 
-                        $query = "SELECT * FROM products WHERE status = 1 and  maincat = '" . mysqli_real_escape_string($con, $q) . "' ORDER BY id DESC";
+                        $query = "SELECT * FROM products WHERE status = 1 and parentid = 0 and  maincat = '" . mysqli_real_escape_string($con, $q) . "' ORDER BY id DESC";
                   }  
                   else { 
-                      $query = "SELECT * FROM products WHERE status = 1  ORDER BY id DESC";
+                      $query = "SELECT * FROM products WHERE status = 1  and parentid = 0 ORDER BY id DESC";
                   }
 
                   $result = mysqli_query($con, $query);

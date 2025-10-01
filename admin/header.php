@@ -64,7 +64,9 @@
                 </li>  
                   <li><a href="contactus.php"><i class="menu-icon fa fa-sliders"></i> Contact Form</a></li>
               
-
+   <li>
+                    <a class="waves-effect" href="offers.php"><i class="menu-icon fa fa-briefcase"></i><span>Company Profile</span></a>
+                </li>  
             </ul> 
 
             </ul>

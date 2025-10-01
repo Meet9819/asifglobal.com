@@ -30,13 +30,19 @@
   
                   $q = isset($_GET['q']) ? trim($_GET['q']) : '';  
  
-                  $query = "SELECT * FROM products WHERE id = '" . mysqli_real_escape_string($con, $q) . "'  ";
+                  $query = "SELECT * FROM products WHERE  status = 1 and   parentid = 0 and id = '" . mysqli_real_escape_string($con, $q) . "'  ";
                  
 
                   $result = mysqli_query($con, $query);
 
                   while($row = mysqli_fetch_array($result))
-                  { echo '  
+                  { 
+                    
+                    $parentid = $row['parentid'];
+
+                    echo '  
+
+
 
             <h1 class="title">'.$row['name'].'</h1>
             <ul class="page-breadcrumb">
@@ -52,11 +58,24 @@
         <div class="auto-container">
           <div class="sec-title text-center">
             <span class="sub-title">OUR PRODUCTS</span>
-            <h2>The range of products we offer</h2>
+            <h2>The range of products we offer for '.$row['name'].'</h2>
           </div>
           <div class="row">
-            <!-- Service Block -->
+                  ';
+              }
+              ?>
+            
 
+                 <?php include('admin/db.php'); 
+  
+                    $q = isset($_GET['q']) ? trim($_GET['q']) : '';   
+                  $query = "SELECT * FROM products WHERE parentid = $q order by id desc";
+                   
+
+                  $result = mysqli_query($con, $query);
+
+                  while($row = mysqli_fetch_array($result))
+                  { echo '   
  
 			            <div class="service-block col-xl-3 col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
 			              <div class="inner-box">
@@ -67,8 +86,7 @@
 			                </div>
 			                <div class="content-box">
 			                  <img src="images/icons/fruits.png" class="icon" alt="fruits">
-			                  <h4 class="title">'.$row['name'].'</h4>
-                        <h4 class="title">₹'.$row['price'].'/-</h4>
+			                  <h4 class="title">'.$row['name'].'</h4> 
 			                  <div class="text">'.$row['shortdescription'].'</div>
 			                </div>
 			              </div>
@@ -79,14 +97,42 @@
                     <div class="inner-box"> 
                       <div class="content-box">  
                         
-                        <div class="text">
- 
-                           Types : '.$row['type'].' <br> 
-                           Packaging type :  '.$row['ptype'].' <br> 
-                           Load in 40/20FT container : '.$row['container'].' <br> 
-                           MOQ : '.$row['moq'].' <br> 
+                      <div class="text"> ';  ?> 
+<?php   
+   $row['tabledesc'];
+$items = explode(",", $row['tabledesc']);
+?>
 
-                        </div><br> 
+<div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        // Step 2: Loop and split by colon
+        foreach ($items as $item) {
+            $parts = explode(":", $item, 2); // only 2 parts
+            if (count($parts) == 2) {
+                $attribute = trim($parts[0]);
+                $value = trim($parts[1]);
+                ?>
+                <tr>
+                    <td><?= htmlspecialchars($attribute) ?></td>
+                    <td><?= htmlspecialchars($value) ?></td>
+                </tr>
+                <?php
+            }
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+</div><br> <?php echo '
+
 
                         <div class="text">'.$row['description'].'</div> 
                         <div class="text">'.$row['descr'].'</div>
@@ -95,16 +141,21 @@
                     </div>
                   </div>
 
+                  <hr>
+   ';
+              }
+              ?>
 
-			            ';
-			        }
-			        ?>
+
 
          
           </div>
         </div>
       </section>
       <!-- End Products Section-->
+
+      
+
       <!-- Tracking Section -->
       <section class="tracking-section pull-down">
         <div class="auto-container">

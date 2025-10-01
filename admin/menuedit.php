@@ -42,28 +42,47 @@ $result = mysqli_query($con,"SELECT * FROM menu WHERE menu_id=".$_GET['edit']);
 $getROW = $result->fetch_array();
 }
 
+if(isset($_POST['update'])) {
+    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $menu_name   = mysqli_real_escape_string($con, $_POST['menu_name']);
+    $parent_id   = mysqli_real_escape_string($con, $_POST['parent_id']);
+    $menu_id     = (int)$_GET['edit']; // force integer for safety
 
-// UPDATE
-if(isset($_POST['update']))
-{
-$result = mysqli_query($con,"UPDATE menu SET menu_name='".$_POST['menu_name']."',parent_id='".$_POST['parent_id']."' WHERE menu_id=".$_GET['edit']);
+    $sql = "UPDATE menu 
+            SET description='$description', 
+                menu_name='$menu_name', 
+                parent_id='$parent_id' 
+            WHERE menu_id=$menu_id";
 
+    $result = mysqli_query($con, $sql);
 
-
-               ?>
-                <script>
-                alert('Successfully Updated..');
-               window.location.href='menuadd.php';
-                </script>
-                <?php
-
+    if ($result) {
+        echo "<script>
+            alert('Successfully Updated..');
+            window.location.href='menuadd.php';
+        </script>";
+    } else {
+        echo "Error: " . mysqli_error($con);
+    }
 }
-
 
 
 ?>
 
   <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+
+  	    						<div class="form-group">
+                                <label for="inp-type-1" class="col-sm-3 control-label">Image </label>
+                                <div class="col-sm-6"> 
+                                      <a target="_blank" href="../images/<?php echo $getROW['img']; ?>"> <?php echo $getROW['img']; ?> </a>
+ 									 <input type="file" name="user_image" accept="*" />
+
+                                <p class="help-block">Image should be in pixels</p>
+                                </div>
+
+                                </div>
+
 
 							<div class="form-group">
 								<label for="inp-type-1" class="col-sm-3 control-label">Menu Name</label>
@@ -81,7 +100,7 @@ $result = mysqli_query($con,"UPDATE menu SET menu_name='".$_POST['menu_name']."'
 
 									 <select id="twelve" name="parent_id" class="form-control">
 								
-
+ <option value="0">Main Menu</option>
 								  <option value="<?php if(isset($_GET['edit'])) echo $getROW['parent_id'];  ?>"><?php if(isset($_GET['edit'])) echo $getROW['parent_id'];  ?></option>
 								   <?php
 
@@ -103,6 +122,15 @@ echo '<option value="' .$row['menu_id'].'">' .$row['menu_id'].' ' .$row['menu_na
 								</div>
 						
 
+							<div class="form-group">
+								<label for="inp-type-1" class="col-sm-3 control-label">Description  </label>
+								<div class="col-sm-6">
+									<textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Description " required=""> <?php if(isset($_GET['edit'])) echo $getROW['description'];  ?> </textarea>
+								</div>
+							</div>
+
+
+						
 
 							<div class="form-group margin-bottom-0">
 									<label for="inp-type-5" class="col-sm-3 control-label"></label> 

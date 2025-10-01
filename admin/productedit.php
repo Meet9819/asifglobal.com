@@ -60,6 +60,8 @@ ini_set('display_errors', 1);
 		 
 		$price   = !empty($_POST['price']) ? $_POST['price'] : '';
 		 
+            $parentid  = !empty($_POST['parentid']) ? $_POST['parentid'] : '';
+            $tabledesc  = !empty($_POST['tabledesc']) ? $_POST['tabledesc'] : '';
             
 		$type   = !empty($_POST['type']) ? $_POST['type'] : '';
 		$ptype   = !empty($_POST['ptype']) ? $_POST['ptype'] : '';
@@ -135,10 +137,13 @@ ini_set('display_errors', 1);
 
  
 
-        $stmt = $DB_con->prepare('UPDATE products SET type=:type,ptype=:ptype,container=:container,moq=:moq, maincat=:maincat,   name=:name,  img=:img, description=:description,  descr=:descr,  metatitle=:metatitle, metatag=:metatag, metadescription=:metadescription , shortdescription=:shortdescription,  price=:price
+        $stmt = $DB_con->prepare('UPDATE products SET parentid = :parentid, tabledesc = :tabledesc, type=:type,ptype=:ptype,container=:container,moq=:moq, maincat=:maincat,   name=:name,  img=:img, description=:description,  descr=:descr,  metatitle=:metatitle, metatag=:metatag, metadescription=:metadescription , shortdescription=:shortdescription,  price=:price
 
          WHERE id=:id');
    
+         	$stmt->bindParam(':parentid',$parentid);  
+         	$stmt->bindParam(':tabledesc',$tabledesc);  
+
          	$stmt->bindParam(':type',$type);   
          	$stmt->bindParam(':ptype',$ptype);   
          	$stmt->bindParam(':container',$container);   
@@ -225,6 +230,31 @@ ini_set('display_errors', 1);
 								</div>
 
  
+							<div class="form-group">
+								<label for="three" class="col-sm-3 control-label">  Display as a Product / Child </label>
+								<div class="col-sm-3"> 
+
+								<select name="parentid" id="parentid" class="form-control">
+    <option value="0">Display as a Product</option>
+    <?php
+    include "db.php";
+
+    // assume $parentid is coming from your form/db record
+    $result = mysqli_query($con, "SELECT * FROM products WHERE parentid = 0");
+    while ($row = mysqli_fetch_assoc($result)) {
+        $selected = ($row['id'] == $parentid) ? 'selected' : '';
+        echo '<option value="' . $row['id'] . '" ' . $selected . '>' . htmlspecialchars($row['name']) . '</option>';
+    }
+    ?>
+</select>
+
+									</div>
+								<div class="col-sm-3">
+								 
+								</div>
+								</div>
+
+
 
 
 							<div class="form-group">
@@ -243,6 +273,14 @@ ini_set('display_errors', 1);
 
 						  
 						 
+							<div class="form-group">
+								    <label for="tabledesc" class="col-sm-3 col-form-label">Table Description (Eg: Origin : India , Purity : 95% ...)</label>
+
+								<div class="col-sm-9">
+									<textarea class="form-control" name="tabledesc" id="tabledesc" > <?php echo $tabledesc; ?></textarea>
+								</div>
+							</div>
+
 
                             <div class="form-group">
                                 <label for="seventeen" class="col-sm-3 control-label">Short Description</label>

@@ -47,6 +47,9 @@ error_reporting(E_ALL);
             $metadescription  = !empty($_POST['metadescription']) ? $_POST['metadescription'] : '';
             $status           = !empty($_POST['status']) ? $_POST['status'] : 0;
              
+            $parentid  = !empty($_POST['parentid']) ? $_POST['parentid'] : '';
+            $tabledesc  = !empty($_POST['tabledesc']) ? $_POST['tabledesc'] : '';
+
 
             
         $type   = !empty($_POST['type']) ? $_POST['type'] : '';
@@ -54,7 +57,7 @@ error_reporting(E_ALL);
         $container   = !empty($_POST['container']) ? $_POST['container'] : '';
         $moq   = !empty($_POST['moq']) ? $_POST['moq'] : '';
  
-            $insert = "INSERT INTO products ( type,ptype,container,moq,  maincat, img,  name,  price,  shortdescription, description, descr,  metatag, metatitle, metadescription, status) VALUES (  '$type', '$ptype', '$container', '$moq',       '$maincat', '$img',  '$name',  '$price',   '$shortdescription', '$description', '$descr',  '$metatag', '$metatitle', '$metadescription', '$status' )";
+            $insert = "INSERT INTO products ( parentid, tabledesc, type,ptype,container,moq,  maincat, img,  name,  price,  shortdescription, description, descr,  metatag, metatitle, metadescription, status) VALUES (  '$parentid', '$tabledesc', '$type', '$ptype', '$container', '$moq',       '$maincat', '$img',  '$name',  '$price',   '$shortdescription', '$description', '$descr',  '$metatag', '$metatitle', '$metadescription', '$status' )";
  
 
                $query =  mysqli_query($con,$insert) or die(mysqli_error($con));

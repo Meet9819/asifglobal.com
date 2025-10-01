@@ -53,7 +53,16 @@
                                                                 ?></div>
                   <div class="image-column desktophide mt-3">
                     <div class="inner-column">
-                      <figure><img src="images/resource/founder.png" alt="founder" class="br-10"/></figure>
+
+                      <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 4");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '<figure><img src="'.$row['img'].'" alt="asif" class="br-10"/></figure>'; 
+                                                                    }
+                                                                ?>
+
+                      
                     </div>
                   </div>
                 
@@ -69,7 +78,13 @@
             <!-- Image Column -->
             <div class="image-column col-lg-6 col-md-12 col-sm-12 mobilehide">
               <div class="inner-column">
-                <figure><img src="images/resource/founder.png" alt="founder" class="br-10"/></figure>
+                  <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 4");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '<figure><img src="'.$row['img'].'" alt="asif" class="br-10"/></figure>'; 
+                                                                    }
+                                                                ?>
               </div>
             </div>
           </div>
@@ -132,7 +147,13 @@
                 <div class="sec-title">
                   <span class="sub-title">Certificate</span>
                   <h2>The certificate we hold</h2>
-                  <div class="text mt-3">These credentials affirm our commitment to excellence and our capability to meet various standards and expectations in our field.</div>
+                  <div class="text mt-3"><?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM terms where id = 30");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo ''.$row['content'].''; 
+                                                                    }
+                                                                ?></div>
                 </div>
                 <figure class="image-2 wow fadeInRight desktophide mb-3">
                   <img src="images/resource/certificate-2.png" alt="certificate-2" class="br-10"/>
@@ -140,28 +161,60 @@
 				<div class="row">
 				  <div class="col-lg-6 col-md-6 col-6 bright">
 				  <figure class="custom-image">
-                    <img src="images/icons/GST.png" alt="GST" />
+                     <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 5");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '  <img src="'.$row['img'].'" alt="asif" />
+
+                                                                   '; 
+                                                                    }
+                                                                ?>
 					<p>GST (Goods and Services Tax)</p>
                   </figure>
 				  
 				  </div>
 				  <div class="col-lg-6 col-md-6 col-6">
 				  <figure class="custom-image">
-                    <img src="images/icons/udyam.png" alt="udyam" />
+                     <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 6");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '  <img src="'.$row['img'].'" alt="asif" />
+
+                                                                   '; 
+                                                                    }
+                                                                ?>
 					<p>MSME</p>
                   </figure>
 				  
 				  </div>
 				  <div class="col-lg-6 col-md-6 col-6 bright btop">
 				  <figure class="custom-image">
-                    <img src="images/icons/IEC.png" alt="IEC" />
+                     <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 7");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '  <img src="'.$row['img'].'" alt="asif" />
+
+                                                                   '; 
+                                                                    }
+                                                                ?>
 					<p>IEC (Import Export Code)</p>
                   </figure>
 				  
 				  </div>
 				  <div class="col-lg-6 col-md-6 col-6 btop">
 				  <figure class="custom-image">
-                    <img src="images/icons/apeda.png" alt="APEDA" />
+                    <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 8");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '  <img src="'.$row['img'].'" alt="asif" />
+
+                                                                   '; 
+                                                                    }
+                                                                ?>
 					<p>APEDA Certificate</p>
                   </figure>
 				  
@@ -172,10 +225,32 @@
             <!-- Image Column -->
             <div class="image-column col-lg-6 col-md-12 col-sm-12 mobilehide">
               <div class="inner-column">
-                <figure class="image-1 wow fadeInUp"><img src="images/resource/certificate-1.png" alt="certificate-1" /></figure>
-                <figure class="image-2 wow fadeInRight">
-                  <img src="images/resource/certificate-2.png" alt="certificate-2" />
+
+                 <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 10");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo ' <figure class="image-1 wow fadeInUp"><img src="'.$row['img'].'" alt="certificate-1" /></figure> 
+
+                                                                   '; 
+                                                                    }
+                                                                ?>
+
+
+                                                                 <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 9");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '<figure class="image-2 wow fadeInRight">
+                  <img src="'.$row['img'].'" alt="certificate-2" /> 
                 </figure>
+ '; 
+                                                                    }
+                                                                ?>
+
+
+               
+                
               </div>
             </div>
           </div>

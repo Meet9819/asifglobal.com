@@ -33,15 +33,15 @@
             <ul>
               <!-- Slide 1 -->
 
-                <?php 
+                <?php $count = 0; 
                         include 'admin/db.php'; 
                                        $result = mysqli_query($con,"SELECT * FROM slider order by id desc   ");
                                         while($row = mysqli_fetch_array($result))
-                                           {  ?> 
+                                           {    ?> 
                                                
                                       
 
-              <li data-index="rs-1" data-transition="zoomout">
+              <li data-index="rs-<?php echo $count++;?>" data-transition="zoomout">
                 <!-- MAIN IMAGE -->
                 <img src="images/sliders/<?php echo $row['img'];?>" alt="" class="rev-slidebg" />
                 <div
@@ -198,8 +198,21 @@
             <!-- Image Column -->
             <div class="image-column col-lg-6 col-md-12 col-sm-12 mobilehide">
               <div class="inner-column">
-                <figure class="image-1"><img src="images/resource/1.png" alt="about-us-1"></figure>
-                <figure class="image-2"><img src="images/resource/2.png" alt="about-us-2"></figure>
+                  <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 11");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '<figure class="image-1"><img src="'.$row['img'].'" alt="asif" class="br-10"/></figure>'; 
+                                                                    }
+                                                                ?>
+                                                                  <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 12");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '<figure class="image-2"><img src="'.$row['img'].'" alt="asif" class="br-10"/></figure>'; 
+                                                                    }
+                                                                ?>
+ 
               </div>
             </div>
           </div>
@@ -216,35 +229,32 @@
           </div>
           <div class="row">
             <!-- Feature Block -->
-            <div class="feature-block col-lg-6 col-md-6 col-sm-12">
-              <div class="inner-box">
-                <div class="icon-box">
-                  <img src="images/icons/fruits.png" class="icon" alt="fruits">
-                </div>
-                <div class="content-box">
-                  <h4 class="title">
-                    Fruits
-                  </h4>
-                  <div class="text">Bringing the world's finest fruits to your doorstep - where freshness meets excellence. Trust us to deliver freshness, taste, and satisfaction, wherever you are.</div>
-				  <a href="fruits.php">READ MORE <span class="fa fa-angle-right"></span></a>
-                </div>
-              </div>
-            </div>
-            <!-- Feature Block -->
-            <div class="feature-block col-lg-6 col-md-6 col-sm-12">
-              <div class="inner-box">
-                <div class="icon-box">
-                  <img src="images/icons/vegetables.png" class="icon" alt="vegetables">
-                </div>
-                <div class="content-box">
-                  <h4 class="title">
-                    Vegetables
-                  </h4>
-                  <div class="text">Embark on a journey of freshness with Asif Global Export, your premier destination for top-quality vegetables sourced from the world's finest farms. </div>
-				  <a href="vegetables.php">READ MORE <span class="fa fa-angle-right"></span></a>
-                </div>
-              </div>
-            </div>
+           
+               <?php 
+                        include 'admin/db.php'; 
+                                       $result = mysqli_query($con,"SELECT * FROM menu   ");
+                                        while($row = mysqli_fetch_array($result))
+                                           { 
+                                              echo ' 
+                                            <div class="feature-block col-lg-6 col-md-6 col-sm-12">
+                                              <div class="inner-box">
+                                                <div class="icon-box">
+                                                  <img src="images/'.$row['img'].'" class="icon" alt="  '.$row['menu_name'].'">
+                                                </div>
+                                                <div class="content-box">
+                                                  <h4 class="title">
+                                                    '.$row['menu_name'].'
+                                                  </h4>
+                                                  <div class="text"> '.$row['description'].'</div>
+                                                  <a href="category.php?q='.$row['menu_id'].'">READ MORE <span class="fa fa-angle-right"></span></a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                 
+                                              ';
+                                           }
+                                       ?> 
+
             <!-- Feature Block -->
             <!--<div class="feature-block col-lg-4 col-md-6 col-sm-12">
               <div class="inner-box">
@@ -341,27 +351,54 @@
                 <div class="sec-title">
                   <span class="sub-title">Certificate</span>
                   <h2>The certificate we hold</h2>
-                  <div class="text">Our extensive collection of certificates showcases our diverse expertise, including quality certifications, professional qualifications, and industry accolades. </div>
-                  <div class="text mt-3">These credentials affirm our commitment to excellence and our capability to meet various standards and expectations in our field.</div>
+                  <div class="text"><?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM terms where id = 29");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo ''.$row['content'].''; 
+                                                                    }
+                                                                ?></div>
                 </div>
                 <figure class="image-2 wow fadeInRight desktophide mb-3">
                   <img src="images/resource/certificate-2.png" alt="certificate-2" class="br-10"/>
                 </figure>
-                <ul class="list-style-two">
+              <!--   <ul class="list-style-two">
                   <li><i class="fa fa-plane"></i> GST (Goods and Services Tax)</li>
                   <li><i class="fa fa-plane"></i> Udyam Certificate</li>
                   <li><i class="fa fa-plane"></i> IEC (Import Export Code)</li>
                   <li><i class="fa fa-plane"></i> APEDA (Agricultural and Processed Food Products Export Development Authority) Certificate</li>
-                </ul>
+                </ul> -->
               </div>
             </div>
             <!-- Image Column -->
             <div class="image-column col-lg-6 col-md-12 col-sm-12 mobilehide">
               <div class="inner-column">
-                <figure class="image-1 wow fadeInUp"><img src="images/resource/certificate-1.png" alt="certificate-1" /></figure>
-                <figure class="image-2 wow fadeInRight">
-                  <img src="images/resource/certificate-2.png" alt="certificate-2" />
+
+                 <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 10");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo ' <figure class="image-1 wow fadeInUp"><img src="'.$row['img'].'" alt="certificate-1" /></figure> 
+
+                                                                   '; 
+                                                                    }
+                                                                ?>
+
+
+                                                                 <?php 
+                                                                    $result = mysqli_query($con,"SELECT * FROM offers where id = 9");
+                                                                    while($row = mysqli_fetch_array($result))
+                                                                    {
+                                                                    echo '<figure class="image-2 wow fadeInRight">
+                  <img src="'.$row['img'].'" alt="certificate-2" /> 
                 </figure>
+ '; 
+                                                                    }
+                                                                ?>
+
+
+               
+                
               </div>
             </div>
           </div>

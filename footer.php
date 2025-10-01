@@ -56,6 +56,11 @@
 										<li><i class="icon flaticon-customer-service"></i> <a href="mailto:info@asifglobal.com">info@asifglobal.com</a></li>
 										<li><i class="icon flaticon-stock-1"></i> <a href="tel:+91 9619791763">+91 9619791763</a></li>
 										</ul>
+										<br> 
+										<a style="    color: white;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 10px;" href="companyprofile.pdf" download target="_blank"> Company Profile </a> 
 									</div>
 								</div>
 							</div>

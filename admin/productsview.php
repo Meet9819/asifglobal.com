@@ -182,7 +182,7 @@ $(document).on('click','.status_checks',function(){
 <script type="text/javascript">
   $(document).ready(function() {
     $('#example').DataTable( {
-         "order": [[ 1, "desc" ]],
+         "order": [[ 0, "desc" ]],
         dom: 'Bfrtip',
         buttons: [
             'copyHtml5',
